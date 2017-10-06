@@ -1,4 +1,4 @@
-[![Gem Version](https://badge.fury.io/rb/sesame-ruby.png)](http://badge.fury.io/rb/sesame-ruby)
+[![Gem Version](https://badge.fury.io/rb/sesame-ruby.svg)](https://badge.fury.io/rb/sesame-ruby)
 [![Build Status](https://travis-ci.org/mbklein/sesame-ruby.svg?branch=master)](https://travis-ci.org/mbklein/sesame-ruby)
 [![Coverage Status](https://coveralls.io/repos/mbklein/sesame-ruby/badge.svg?branch=master&service=github)](https://coveralls.io/github/mbklein/sesame-ruby?branch=master)
 
