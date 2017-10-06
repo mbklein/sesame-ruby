@@ -1,0 +1,16 @@
+inherit_from: .rubocop_todo.yml
+Naming/FileName:
+  Exclude:
+    - 'lib/sesame-ruby.rb'
+
+Naming/AccessorMethodName:
+  Exclude:
+    - 'lib/sesame/api.rb'
+
+Style/MethodMissing:
+  Exclude:
+    - 'spec/*.rb'
+
+Metrics/BlockLength:
+  Exclude:
+    - 'spec/*.rb'

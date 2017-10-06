@@ -1,0 +1,37 @@
+---
+lock:
+  :method: :post
+  :path: sesame/ABCD12345/control
+  :request:
+    :headers:
+      Content-Type: application/json
+      X-Authorization: d015cf1353d21a14f392835bceb56d53649e447e3aebe440cef9d
+    :body:
+      :type: lock
+  :response:
+    status: 204
+    body: ''
+unlock:
+  :method: :post
+  :path: sesame/ABCD12345/control
+  :request:
+    :headers:
+      Content-Type: application/json
+      X-Authorization: d015cf1353d21a14f392835bceb56d53649e447e3aebe440cef9d
+    :body:
+      :type: unlock
+  :response:
+    status: 204
+    body: ''
+squish:
+  :method: :post
+  :path: sesame/ABCD12345/control
+  :request:
+    :headers:
+      Content-Type: application/json
+      X-Authorization: d015cf1353d21a14f392835bceb56d53649e447e3aebe440cef9d
+    :body:
+      :type: squish
+  :response:
+    :status: 400
+    :body: '{"code":10005,"message":"WrongControlType"}'

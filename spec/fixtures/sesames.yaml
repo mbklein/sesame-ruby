@@ -1,0 +1,46 @@
+---
+sesames:
+  :path: sesames
+  :request:
+    :headers:
+      X-Authorization: d015cf1353d21a14f392835bceb56d53649e447e3aebe440cef9d
+  :response:
+    :body: |
+      {
+        "sesames": [
+          {
+            "device_id": "ABC1234567",
+            "nickname": "Front door",
+            "is_unlocked": true,
+            "api_enabled": true,
+            "battery": 100
+          }, {
+            "device_id": "DEF7654321",
+            "nickname": "Back door",
+            "is_unlocked": false,
+            "api_enabled": false,
+            "battery": 80
+          }
+        ]
+      }
+sesame:
+  :path: sesame/ABCD12345
+  :request:
+    :headers:
+      X-Authorization: d015cf1353d21a14f392835bceb56d53649e447e3aebe440cef9d
+  :response:
+    :body: |
+      {
+        "nickname": "Front door",
+        "is_unlocked": true,
+        "api_enabled": true,
+        "battery": 100
+      }
+unknown_sesame:
+  :path: sesame/EFGH67890
+  :request:
+    :headers:
+      X-Authorization: d015cf1353d21a14f392835bceb56d53649e447e3aebe440cef9d
+  :response:
+    :status: 400
+    :body: '{"code":11002,"message":"SesameNotFound"}'
