@@ -5,7 +5,7 @@ require 'coveralls'
 require 'simplecov'
 require 'sesame'
 
-# Coveralls.wear!
+Coveralls.wear!
 SimpleCov.start do
   add_filter '/spec/'
 end
