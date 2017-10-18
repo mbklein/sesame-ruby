@@ -24,7 +24,7 @@ sesames:
         ]
       }
 sesame:
-  :path: sesame/ABCD12345
+  :path: sesames/ABCD12345
   :request:
     :headers:
       X-Authorization: d015cf1353d21a14f392835bceb56d53649e447e3aebe440cef9d
@@ -37,7 +37,7 @@ sesame:
         "battery": 100
       }
 unknown_sesame:
-  :path: sesame/EFGH67890
+  :path: sesames/EFGH67890
   :request:
     :headers:
       X-Authorization: d015cf1353d21a14f392835bceb56d53649e447e3aebe440cef9d

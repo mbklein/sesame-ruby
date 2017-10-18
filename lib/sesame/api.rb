@@ -28,11 +28,11 @@ module Sesame
     end
 
     def get_sesame(device_id:)
-      get("sesame/#{device_id}")
+      get("sesames/#{device_id}")
     end
 
     def control_sesame(device_id:, type:)
-      post("sesame/#{device_id}/control", type: type)
+      post("sesames/#{device_id}/control", type: type)
     end
 
     def get(path)
