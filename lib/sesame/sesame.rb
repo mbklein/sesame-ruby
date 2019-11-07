@@ -7,37 +7,33 @@ module Sesame
     end
 
     def device_id
-      @state['device_id']
+      @state["device_id"]
     end
 
-    def nickname
-      @state['nickname']
+    def locked?
+      truthy?(@state["locked"])
     end
-
-    def unlocked?
-      truthy?(@state['is_unlocked'])
-    end
-    alias is_unlocked unlocked?
+    alias locked locked?
 
     def state
-      unlocked? ? 'unlocked' : 'locked'
+      locked? ? 'locked' : 'unlocked'
     end
-
-    def api_enabled?
-      truthy?(@state['api_enabled'])
-    end
-    alias api_enabled api_enabled?
 
     def battery
-      @state['battery'].to_i
+      @state["battery"].to_i
     end
 
+    def responsive?
+      truthy?(@state["responsive"])
+    end
+    alias responsive responsive?
+
     def lock
-      control(type: 'lock')
+      control(command: 'lock')
     end
 
     def unlock
-      control(type: 'unlock')
+      control(command: 'unlock')
     end
 
     def inspect
@@ -56,8 +52,8 @@ module Sesame
       (value == true) || (value == 'true')
     end
 
-    def control(type:)
-      control_sesame(device_id: device_id, type: type)
+    def control(command:)
+      control_sesame(device_id: device_id, command: command)
       refresh!
       true
     end
