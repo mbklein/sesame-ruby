@@ -3,14 +3,13 @@ module Sesame
     attr_reader :status, :code
 
     def initialize(status, data)
-      super(data['message'])
+      super(data['error'])
       @data = data
       @status = status
-      @code = data['code'].to_i
     end
 
     def to_s
-      %(#{@data['message']} HTTP: #{status}, API: #{@data['code']})
+      %(#{@data['error']} HTTP: #{status})
     end
   end
 end

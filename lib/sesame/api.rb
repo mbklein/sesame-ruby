@@ -5,10 +5,6 @@ module Sesame
   module Api
     ENDPOINT_URL = 'https://api.candyhouse.co/public'.freeze
 
-    def authorized?
-      !@auth_token.nil?
-    end
-
     def client
       @client ||= Faraday.new(url: ENDPOINT_URL)
     end
@@ -18,21 +14,16 @@ module Sesame
       self
     end
 
-    def login(email:, password:)
-      auth_response = post('accounts/login', email: email, password: password)
-      auth_token(auth_response['authorization'])
-    end
-
     def get_sesames
       get('sesames')
     end
 
     def get_sesame(device_id:)
-      get("sesames/#{device_id}")
+      get("sesame/#{device_id}")
     end
 
-    def control_sesame(device_id:, type:)
-      post("sesames/#{device_id}/control", type: type)
+    def control_sesame(device_id:, command:)
+      post("sesame/#{device_id}", command: command)
     end
 
     def get(path)
@@ -47,7 +38,7 @@ module Sesame
       response = client.send(method) do |req|
         req.url path
         req.headers['Content-Type'] = 'application/json'
-        req.headers['X-Authorization'] = @auth_token unless @auth_token.nil?
+        req.headers['Authorization'] = @auth_token unless @auth_token.nil?
         req.body = params.to_json unless params.nil?
       end
       parse_response(response)

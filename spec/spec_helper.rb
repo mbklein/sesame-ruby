@@ -31,7 +31,7 @@ def stub_fixtures(*args)
     fixtures = YAML.safe_load(File.read(fixture_file), [Symbol])
     fixtures.each_value do |fixture|
       fill_response_headers(fixture[:response])
-      stub_request(fixture[:method] || :get, "https://api.candyhouse.co/v1/#{fixture[:path]}")
+      stub_request(fixture[:method] || :get, "https://api.candyhouse.co/public/#{fixture[:path]}")
         .with(fixture[:request])
         .to_return(fixture[:response])
     end
