@@ -3,7 +3,7 @@ require 'json'
 
 module Sesame
   module Api
-    ENDPOINT_URL = 'https://api.candyhouse.co/v1/'.freeze
+    ENDPOINT_URL = 'https://api.candyhouse.co/public'.freeze
 
     def authorized?
       !@auth_token.nil?
