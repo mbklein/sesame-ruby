@@ -7,11 +7,11 @@ module Sesame
     end
 
     def device_id
-      @state["device_id"]
+      @state['device_id']
     end
 
     def locked?
-      truthy?(@state["locked"])
+      truthy?(@state['locked'])
     end
     alias locked locked?
 
@@ -20,11 +20,11 @@ module Sesame
     end
 
     def battery
-      @state["battery"].to_i
+      @state['battery'].to_i
     end
 
     def responsive?
-      truthy?(@state["responsive"])
+      truthy?(@state['responsive'])
     end
     alias responsive responsive?
 
