@@ -37,8 +37,7 @@ module Sesame
     end
 
     def inspect
-      details = @state.keys.collect { |k| "#{k}: #{send(k.to_sym)}" }.join(', ')
-      %(#<#{self.class.name}:#{format('0x%.14x', (object_id << 1))} #{details}>)
+      %(#<#{self.class.name}:#{format('0x%.14x', (object_id << 1))} device_id: #{device_id}>)
     end
 
     def refresh!

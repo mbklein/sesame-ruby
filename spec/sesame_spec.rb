@@ -53,7 +53,7 @@ RSpec.describe Sesame do
 
       it '#inspect' do
         expect(subject.inspect)
-          .to match(/device_id: ABCD12345, locked: true, battery: 100, responsive: true/)
+          .to match(/device_id: ABCD12345/)
       end
     end
   end
