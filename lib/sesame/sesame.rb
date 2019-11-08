@@ -23,11 +23,6 @@ module Sesame
       @state['battery'].to_i
     end
 
-    def responsive?
-      truthy?(@state['responsive'])
-    end
-    alias responsive responsive?
-
     def lock
       control(command: 'lock')
     end
