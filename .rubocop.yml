@@ -7,10 +7,19 @@ Naming/AccessorMethodName:
   Exclude:
     - 'lib/sesame/api.rb'
 
-Style/MethodMissing:
+Style/MethodMissingSuper:
+  Exclude:
+    - 'spec/*.rb'
+
+Style/MissingRespondToMissing:
   Exclude:
     - 'spec/*.rb'
 
 Metrics/BlockLength:
   Exclude:
     - 'spec/*.rb'
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Style/NumericPredicate:
+  Enabled: false

@@ -1,26 +1,16 @@
 require 'spec_helper'
 
 RSpec.describe Sesame do
-  let(:email)      { 'abc@i-lovecandyhouse.co' }
-  let(:password)   { 'super-strong-password' }
   let(:auth_token) { 'd015cf1353d21a14f392835bceb56d53649e447e3aebe440cef9d' }
   let(:device_id)  { 'ABCD12345' }
-  let(:client)     { Sesame::Client.new email: email, password: password }
+  let(:client)     { Sesame::Client.new auth_token: auth_token }
 
   it 'has a version number' do
     expect(Sesame::VERSION).not_to be nil
   end
 
   describe Sesame::Client do
-    before do
-      stub_fixtures('login')
-    end
-
     subject { client }
-
-    it 'logs in' do
-      expect(subject).to be_authorized
-    end
 
     it '#inspect does not expose the auth_token' do
       expect(subject.inspect).not_to match(/auth_token/)
@@ -29,7 +19,7 @@ RSpec.describe Sesame do
 
   describe Sesame::Sesame do
     before do
-      stub_fixtures('login', 'sesames', 'control')
+      stub_fixtures('sesames', 'control')
     end
 
     describe 'all sesames' do
@@ -48,11 +38,9 @@ RSpec.describe Sesame do
 
       it 'knows its details' do
         expect(subject.device_id).to eq(device_id)
-        expect(subject.nickname).to eq('Front door')
         expect(subject.battery).to eq(100)
-        expect(subject).to be_unlocked
-        expect(subject.state).to eq('unlocked')
-        expect(subject).to be_api_enabled
+        expect(subject).to be_locked
+        expect(subject.state).to eq('locked')
       end
 
       it 'locks' do
@@ -65,7 +53,7 @@ RSpec.describe Sesame do
 
       it '#inspect' do
         expect(subject.inspect)
-          .to match(/nickname: Front door, is_unlocked: true, api_enabled: true, battery: 100/)
+          .to match(/device_id: ABCD12345/)
       end
     end
   end

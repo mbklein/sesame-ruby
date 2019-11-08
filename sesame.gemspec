@@ -1,5 +1,4 @@
-
-lib = File.expand_path('../lib', __FILE__)
+lib = File.expand_path('lib', __dir__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'sesame/version'
 
@@ -18,18 +17,18 @@ Gem::Specification.new do |spec|
   end
   spec.require_paths = ['lib']
 
-  spec.add_dependency 'json'
   spec.add_dependency 'faraday'
+  spec.add_dependency 'json'
 
   spec.add_development_dependency 'bundler', '~> 1.15'
-  spec.add_development_dependency 'rake', '~> 10.0'
-  spec.add_development_dependency 'rspec', '~> 3.0'
+  spec.add_development_dependency 'coveralls'
+  spec.add_development_dependency 'faraday-detailed_logger'
   spec.add_development_dependency 'pry'
   spec.add_development_dependency 'pry-byebug'
+  spec.add_development_dependency 'rake', '~> 10.0'
+  spec.add_development_dependency 'rspec', '~> 3.0'
   spec.add_development_dependency 'rubocop'
   spec.add_development_dependency 'rubocop-rspec'
   spec.add_development_dependency 'simplecov'
   spec.add_development_dependency 'webmock'
-  spec.add_development_dependency 'coveralls'
-  spec.add_development_dependency 'faraday-detailed_logger'
 end
