@@ -25,24 +25,35 @@ Or install it yourself as:
 
 ## Usage
 
-    # Log into the API
-    > client = Sesame::Client.new(email: 'abc@i-lovecandyhouse.co', password: 'super-strong-password')
-    => #<Sesame::Client:0x007fa1a81771d0 user: abc@i-lovecandyhouse.co>
+Please create the your auth token by logging into the [CANDY HOUSE Dashboard](https://my.candyhouse.co/) with your CANDY HOUSE account.
 
-    # Get an array of all API-enabled devices associated with the account
+    > client = Sesame::Client.new(auth_token: 'your_auth_token')
+    => #<Sesame::Client:0x007fa1a81771d0>
+
+    # Get an array of all devices associated with the account
     > client.sesames
-    => [#<Sesame::Sesame:0x007fa1aa3bb188 device_id: ABC1234567, nickname: Front door, is_unlocked: true, api_enabled: true, battery: 100>,
-    #<Sesame::Sesame:0x007fa1aa3bb160 device_id: DEF7654321, nickname: Back door, is_unlocked: false, api_enabled: false, battery: 80>]
+    => [#<Sesame::Sesame:0x007fa1aa3bb188 device_id: ABC1234567>,
+    #<Sesame::Sesame:0x007fa1aa3bb160 device_id: DEF7654321>]
 
     # Get a single device
     > sesame = client.sesame(device_id: 'ABC1234567')
-    => #<Sesame::Sesame:0x007fa1aa3bb188 device_id: ABC1234567, nickname: Front door, is_unlocked: true, api_enabled: true, battery: 100>
+    => [#<Sesame::Sesame:0x007fa1aa3bb188 device_id: ABC1234567>
 
     # Control the device
     > sesame.unlock
     => true
     > sesame.lock
     => true
+
+    # Show the device status
+    > sesame.locked?
+    => true
+    > sesame.battery
+    => 100
+
+    # Sync the device status
+    > sesame.refresh!
+    => [#<Sesame::Sesame:0x007fa1aa3bb188 device_id: ABC1234567>
 
 ## Contributing
 
