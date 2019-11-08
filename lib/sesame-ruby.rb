@@ -1,1 +1,1 @@
-require File.expand_path('../sesame', __FILE__)
+require File.expand_path('sesame', __dir__)

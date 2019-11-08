@@ -47,6 +47,7 @@ module Sesame
     def parse_response(response)
       parsed_response = response.headers['Content-Length'].to_i > 0 ? JSON.parse(response.body) : ''
       raise Error.new(response.status, parsed_response) if response.status >= 400
+
       parsed_response
     end
   end

@@ -18,3 +18,8 @@ Style/MissingRespondToMissing:
 Metrics/BlockLength:
   Exclude:
     - 'spec/*.rb'
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Style/NumericPredicate:
+  Enabled: false

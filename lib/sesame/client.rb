@@ -17,7 +17,7 @@ module Sesame
     end
 
     def inspect
-      %(#<#{self.class.name}:#{format('0x%.14x', (object_id << 1))}>)
+      %(#<#{self.class.name}:#{format('0x%<object_id>.14x', object_id: (object_id << 1))}>)
     end
   end
 end

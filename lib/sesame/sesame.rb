@@ -37,7 +37,7 @@ module Sesame
     end
 
     def inspect
-      %(#<#{self.class.name}:#{format('0x%.14x', (object_id << 1))} device_id: #{device_id}>)
+      %(#<#{self.class.name}:#{format('0x%<object_id>.14x', object_id: (object_id << 1))} device_id: #{device_id}>)
     end
 
     def refresh!
